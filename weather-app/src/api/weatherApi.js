@@ -8,7 +8,7 @@ export const getCurrentWeather = async (city) => {
     return response.json();
 };
 
-export const getFORECAST = async (city) => {
+export const getForecast = async (city) => {
     const response = await fetch(
         `${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`
     );
@@ -16,7 +16,7 @@ export const getFORECAST = async (city) => {
     return response.json();
 };
 
-export const getWeatherByCoords = async (Lat, lon) => {
+export const getWeatherByCoords = async (lat, lon) => {
     const response = await fetch(
         `${BASE_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
     );
