@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Weather Backgrounds  */
+.app-background {
+  min-height: 100vh;
+  transition: background 1.2s ease-in-out;
+  background: linear-gradient(to bottom, #1a6bcc, #3d9be9);
+}
+
+.bg-clear-day {
+  background: linear-gradient(to bottom, #1a6bcc, #3d9be9);
+}
+
+.bg-clear-night {
+  background: linear-gradient(to bottom, #0a0a2e, #1a1a4e);
+}
+
+.bg-clouds {
+  background: linear-gradient(to bottom, #4a7fa5, #6a9fc0);
+}
+
+.bg-rain {
+  background: linear-gradient(to bottom, #4a5568, #718096);
+}
+
+.bg-thunderstorm {
+  background: linear-gradient(to bottom, #1a1a2e, #2d2d44);
+}
+
+.bg-snow {
+  background: linear-gradient(to bottom, #7a8ba3, #a8b5c7);
+}
+
+.bg-atmosphere {
+  background: linear-gradient(to bottom, #b0bec5, #90a4ae);
+}
+
+.app-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.bg-layer.fade-in {
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.bg-layer.fade-out {
+  animation: fadeOut 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+@media (max-width: 600px) {
+  .weather-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .city-name {
+    font-size: 2rem !important;
+  }
+
+  .current-temp {
+    font-size: 4rem !important;
+  }
+
+  .leaflet-container {
+    height: 250px !important;
+  }
+}

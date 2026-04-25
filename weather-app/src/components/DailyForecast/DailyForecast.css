@@ -1,0 +1,46 @@
+.daily-forecast {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  color: white;
+}
+
+.daily-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.daily-row:last-child {
+  border-bottom: none;
+}
+
+.daily-day {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.daily-icon {
+  font-size: 2rem;
+  justify-self: start;
+  color: white;
+}
+
+.daily-temps {
+  display: flex;
+  gap: 16px;
+  font-size: 1rem;
+}
+
+.daily-low {
+  opacity: 0.6;
+}
+
+.daily-high {
+  font-weight: 500;
+}
