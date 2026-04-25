@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { TbCurrentLocation } from "react-icons/tb";
 import useWeather from "../../context/useWeather";
+import useGeolocation from "../../hooks/useGeolocation";
 import './SearchBar.css';
 
 const SearchBar = () => {
     const [input, setInput] = useState('');
     const { fetchWeather } = useWeather();
     const [validationError, setValidationError] = useState('');
+    const { getLocation } = useGeolocation();
 
     const handleSubmit = () => {
         if (!input.trim()) {
@@ -21,8 +24,17 @@ const SearchBar = () => {
         if (e.key === 'Enter') handleSubmit();
     };
 
+    const handleLocationClick = async () => {
+        getLocation((coords) => {
+            fetchWeather(null, coords);
+        });
+    };
+
     return (
         <div className="search-bar">
+            <button className="location-btn" onClick={handleLocationClick} title="Use my Location">
+                <TbCurrentLocation />
+            </button>
             <input
                 type="text"
                 value={input}

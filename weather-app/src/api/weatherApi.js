@@ -23,3 +23,11 @@ export const getWeatherByCoords = async (lat, lon) => {
     if (!response.ok) throw new Error('Location not found');
     return response.json();
 };
+
+export const getForecastByCoords = async (lat, lon) => {
+    const response = await fetch(
+        `${BASE_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+    if (!response.ok) throw new Error('Forecast not found');
+    return response.json();
+};
